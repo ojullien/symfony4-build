@@ -20,10 +20,9 @@ Install web-skeleton: `symfony new my_project_name --version=4.4 --full`
 
 ## Running Symfony Applications
 
-Start php server: `symfony server:start`
+Start php server: `symfony server:start` or `symfony serve -d`
 
-Open your browser and navigate to: https://localhost:8000/
-
+Open your browser and navigate [to](https://localhost:8000/)
 
 ## Requêtes et réponses en Symfony
 
@@ -42,3 +41,17 @@ Utiliser le composant [HttpKernel](https://symfony.com/doc/4.4/components/http_k
 ## Créer un controleur
 
 Utiliser la console: `php bin/console make:controller`
+
+## Autowire
+
+```yaml
+# config/services.yaml
+parameters:
+    admin_email: 'admin@openclassrooms.com'
+
+# Suffisant pour que le MailLogger soit bien instancié.
+services:
+    _defaults:
+        bind:
+            $adminEmail: '%admin_email%'
+```
