@@ -22,4 +22,23 @@ Install web-skeleton: `symfony new my_project_name --version=4.4 --full`
 
 Start php server: `symfony server:start`
 
-Open your browser and navigate to: http://localhost:8000/
+Open your browser and navigate to: https://localhost:8000/
+
+
+## Requêtes et réponses en Symfony
+
+Utiliser [ttpFoundation](https://symfony.com/doc/4.4/components/http_foundation.html)
+
+## La gestion du "routing"
+
+Utiliser le composant [Routing](https://symfony.com/doc/4.4/components/routing.html)
+
+Debugger: `php bin/console debug:router`
+
+## Le controleur front
+
+Utiliser le composant [HttpKernel](https://symfony.com/doc/4.4/components/http_kernel.html)
+
+## Créer un controleur
+
+Utiliser la console: `php bin/console make:controller`
