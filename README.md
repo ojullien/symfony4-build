@@ -16,16 +16,9 @@ Write into profile : `export PATH="$HOME/.symfony/bin:$PATH"`
 
 ### The PHPUnit Testing Framework
 
- Install the [PHPUnit Bridge component](https://symfony.com/components/PHPUnit%20Bridge): `composer require --dev symfony/phpunit-bridge`
- Read the [doc](https://symfony.com/doc/current/testing.html)
- Create a test file:
-
- ```bash
- symfony console make:test Controller\\IndexControllerTest
- or
- symfony console make:functional-test Controller\\IndexController
- ```
-
+Install the [PHPUnit Bridge component](https://symfony.com/components/PHPUnit%20Bridge): `composer require --dev symfony/phpunit-bridge`
+Read the [doc](https://symfony.com/doc/current/testing.html)
+Create a test file `symfony console make:test Controller\\IndexControllerTest`
 Then use command:
 
 ```bash

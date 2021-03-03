@@ -56,5 +56,21 @@ class IndexControllerTest extends WebTestCase
         $this->assertSelectorTextContains('h1', 'Hello Zozor', 'Avec "zozor", la page Hello Zozor ne fonctionne pas');
     }
 
+    /**
+     *
+     * @return void
+     * @throws RuntimeException
+     * @throws LogicException
+     * @throws ServiceCircularReferenceException
+     * @throws ServiceNotFoundException
+     */
+    public function testHelloWithAnEvent(): void
+    {
+        $client = static::createClient();
+        $client->catchExceptions(false);
+        $client->request('GET', '/hello-world/zozor');
+        $this->assertResponseIsSuccessful();
+        $this->assertSelectorExists('p:contains("Bienvenue parmi nous zozor !")', 'L\'événement ne fonctionne pas');
+    }
 
 }
