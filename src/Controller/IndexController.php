@@ -27,7 +27,8 @@ class IndexController extends AbstractController
      */
     public function hello(EventDispatcherInterface $theEventDispatcher, string $name="world" ): Response
     {
-        $httpResponse = new Response('<h1>Hello '. \ucfirst($name) . '</h1>');
+        //$httpResponse = new Response('<h1>Hello '. \ucfirst($name) . '</h1>');
+        $httpResponse = $this->render('index/index.html.twig', ['visitor_name' => \ucfirst($name),]);
         $theEvent = new HelloEvent( $httpResponse, $name );
         $theEventDispatcher->dispatch($theEvent, HelloEvent::NAME);
         return $httpResponse;
