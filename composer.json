@@ -40,6 +40,7 @@
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.18",
         "symfony/browser-kit": "^4.4",
         "symfony/css-selector": "^4.4",
         "symfony/debug-bundle": "^4.4",
@@ -83,7 +84,8 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
-        ]
+        ],
+        "fixer": "vendor/bin/php-cs-fixer fix --allow-risky=yes --verbose --diff src"
     },
     "conflict": {
         "symfony/symfony": "*"

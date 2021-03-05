@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace App\Controller;
 
@@ -12,7 +13,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class HelloController extends AbstractController
 {
     /**
-     * CHAP01
+     * CHAP01.
+     *
      * @Route("/hello-world/{name}", name="hello", methods={"GET"})
      */
     /*
@@ -23,15 +25,17 @@ class HelloController extends AbstractController
     */
 
     /**
-     * CHAP02
+     * CHAP02.
+     *
      * @Route("/hello-world/{name}", name="hello", methods={"GET"})
      */
-    public function hello(EventDispatcherInterface $theEventDispatcher, string $name="world" ): Response
+    public function hello(EventDispatcherInterface $theEventDispatcher, string $name = 'world'): Response
     {
         //$httpResponse = new Response('<h1>Hello '. \ucfirst($name) . '</h1>');
-        $httpResponse = $this->render('hello/index.html.twig', ['visitor_name' => \ucfirst($name),]);
-        $theEvent = new HelloEvent( $httpResponse, $name );
+        $httpResponse = $this->render('hello/index.html.twig', ['visitor_name' => \ucfirst($name)]);
+        $theEvent = new HelloEvent($httpResponse, $name);
         $theEventDispatcher->dispatch($theEvent, HelloEvent::NAME);
+
         return $httpResponse;
     }
 }
