@@ -1,0 +1,22 @@
+includes:
+    - vendor/phpstan/phpstan-strict-rules/rules.neon
+    - vendor/phpstan/phpstan-deprecation-rules/rules.neon
+    - vendor/phpstan/phpstan-symfony/extension.neon
+
+parameters:
+    tmpDir: var/phpstan
+
+    level: 1
+
+    paths:
+        - src
+        - public
+
+    excludes_analyse:
+        - tests
+
+    symfony:
+        container_xml_path: var/cache/dev/srcApp_KernelDevDebugContainer.xml
+
+    checkMissingIterableValueType: true
+    checkGenericClassInNonGenericObjectType: true
