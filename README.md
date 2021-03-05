@@ -110,3 +110,11 @@ Chacun de ces événements va retourner une instance particulière de KernelEven
 ## Créez et déployez des événements spécifiques
 
 Un événement est un objet quelconque, vous êtes libre d'utiliser n'importe quel objet tant qu'il étend la classe Event du composant EventDispatcher.
+
+## TWIG
+
+Read the docs about:
+
+- [twig](https://twig.symfony.com/)
+- [Forms](https://symfony.com/doc/4.4/forms.html)
+- [Validation Constraints](https://symfony.com/doc/4.4/reference/constraints.html)
