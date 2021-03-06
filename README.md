@@ -79,7 +79,7 @@ Read [doc](https://symfony.com/doc/4.4/configuration.html#creating-a-new-environ
 
 **Firefox strict content security policy will block the debug javascript!**
 
-**Symfony do not inject debug bar when using direct response. Use twig!**
+**Symfony do not inject debug bar when using direct response. Uses twig!**
 
 ## Requêtes et réponses en Symfony
 
@@ -139,12 +139,36 @@ Read the docs about:
 - [Validation](https://symfony.com/doc/4.4/validation.html)
 - [Validation Constraints](https://symfony.com/doc/4.4/reference/constraints.html)
 
-Use the commands:
+Uses the commands:
 
 ```bash
 php bin/console debug:validator 'App\Entity\SomeClass'
 php bin/console debug:validator src/Entity
 ```
+
+## Databases and the Doctrine ORM
+
+Read the [doc here](https://symfony.com/doc/4.4/doctrine.html)
+
+### Configuring the Database
+
+Update .env.local file and run the command `php bin/console doctrine:database:create`
+
+### Creating an Entity Class
+
+Uses the command: `php bin/console make:entity`
+
+Note: If you prefer to add new properties manually, the make:entity command can generate the getter & setter methods for you: `php bin/console make:entity --regenerate`
+
+### Creating the controller and the templates
+
+Uses the command: `php bin/console make:crud`
+
+### Creating the Database Tables/Schema
+
+Uses this command to create the migration: `php bin/console make:migration`
+
+Uses this command to run the migration: `php bin/console doctrine:migrations:migrate`
 
 ## Get ready for production
 
