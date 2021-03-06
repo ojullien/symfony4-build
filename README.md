@@ -2,21 +2,30 @@
 
 ## Setup
 
-### Symfony certificate
-
-Install certutil tool: `apt install libnss3-tools`
-
-Install certificate: `symfony server:ca:install`
-
 ### Symfony CLI
 
 Download and install CLI: `wget https://get.symfony.com/cli/installer -O - | bash`
 
 Write into profile : `export PATH="$HOME/.symfony/bin:$PATH"`
 
+### Symfony certificate
+
+Install certutil tool: `apt install libnss3-tools`
+
+Install certificate: `symfony server:ca:install`
+
+### WebDriver
+
+Instal ChromeDriver and geckodriver if using [Panther component](https://github.com/symfony/panther): `apt-get install chromium-chromedriver firefox-geckodriver`
+
+## Creating Symfony applications
+
+Install web-skeleton: `symfony new my_project_name --version=4.4 --full`
+
 ### The PHPUnit Testing Framework
 
 Install the [PHPUnit Bridge component](https://symfony.com/components/PHPUnit%20Bridge): `composer require --dev symfony/phpunit-bridge`
+Install the [Panther component](https://github.com/symfony/panther) if needed: `composer req --dev symfony/panther`
 Read the [doc](https://symfony.com/doc/current/testing.html)
 Create a test file `symfony console make:test Controller\\IndexControllerTest`
 Then use command:
@@ -31,9 +40,18 @@ php bin/phpunit tests/Util
 php bin/phpunit tests/Util/CalculatorTest.php
 ```
 
-## Creating Symfony applications
+Note: *To use Panther with PHPUnit, uncomment the snippet registering the Panther extension in phpunit.xml.dist*
 
-Install web-skeleton: `symfony new my_project_name --version=4.4 --full`
+### Linter others tools
+
+```bash
+# Install
+composer require --dev friendsofphp/php-cs-fixer
+composer require --dev phpstan/phpstan
+composer require --dev phpstan/phpstan-strict-rules
+composer require --dev phpstan/phpstan-deprecation-rules
+composer require --dev phpstan/phpstan-symfony
+```
 
 ## Running Symfony Applications
 
@@ -116,5 +134,31 @@ Un événement est un objet quelconque, vous êtes libre d'utiliser n'importe qu
 Read the docs about:
 
 - [twig](https://twig.symfony.com/)
-- [Forms](https://symfony.com/doc/4.4/forms.html)
+- [Forms](https://symfony.com/doc/current/forms.html)
+- [Form types](https://symfony.com/doc/4.4/reference/forms/types.html)
+- [Validation](https://symfony.com/doc/4.4/validation.html)
 - [Validation Constraints](https://symfony.com/doc/4.4/reference/constraints.html)
+
+Use the commands:
+
+```bash
+php bin/console debug:validator 'App\Entity\SomeClass'
+php bin/console debug:validator src/Entity
+```
+
+## Get ready for production
+
+### Clear the cache
+
+```bash
+php bin/console cache:clear`
+php bin/console cache:clear --env=prod
+```
+
+### Customize Error Pages
+
+Read the [documentation](https://symfony.com/doc/4.4/controller/error_pages.html)
+
+### Checking Security Vulnerabilities
+
+Use: `symfony check:security`

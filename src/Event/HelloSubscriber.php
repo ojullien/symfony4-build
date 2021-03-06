@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Event;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-//use Symfony\Component\HttpKernel\KernelEvents; KernelEvents::RESPONSE
 use UnexpectedValueException;
 
 class HelloSubscriber implements EventSubscriberInterface
@@ -13,9 +12,9 @@ class HelloSubscriber implements EventSubscriberInterface
     private const DEFAULT_NAME = 'world';
 
     /**
-     * @return array
+     * @return array<string,string>
      */
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [HelloEvent::NAME => 'onResponse'];
     }

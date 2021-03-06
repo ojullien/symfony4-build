@@ -6,7 +6,7 @@ includes:
 parameters:
     tmpDir: var/phpstan
 
-    level: 1
+    level: max
 
     paths:
         - src
@@ -20,3 +20,4 @@ parameters:
 
     checkMissingIterableValueType: true
     checkGenericClassInNonGenericObjectType: true
+    treatPhpDocTypesAsCertain: false
